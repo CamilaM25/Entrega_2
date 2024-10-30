@@ -1,0 +1,46 @@
+{% extends "base.htlm" %}
+
+{% block title%} {% endblock  %}
+
+{% block contenido%}
+
+<div class="card">
+    <div class="card-header">
+         Lista de Equipos
+    </div>
+    <div class="card-body">
+         <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Modelo</th>
+      <th scope="col">Serial</th>
+      <th scope="col">Área</th>
+      <th scope="col">Responsable</th>
+      <th scope="col">Acciones</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Bomba de Infusión IV</td>
+      <td>Medtronic</td>
+      <td>MiniMed 770G</td>
+      <td>SN123456</td>
+      <td>Unidad de Cuidados Intensivos</td>
+      <td>Dr. Juan Pérez</td>
+      <td>
+        <a class="btn btn-primary btn-sm">Editar</a>
+        <a class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar este equipo?');">Eliminar</a>
+      </td>
+    </tr>
+   
+  </tbody>
+</table>
+     </div>
+</div>
+
+{% endblock %}

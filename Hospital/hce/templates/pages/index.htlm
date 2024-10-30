@@ -1,0 +1,18 @@
+{% extends "base.htlm" %}
+
+{% load static %}  <!-- Cargar archivos estáticos -->
+
+{% block title %} {% endblock %}
+
+{% block contenido %}
+<div class="jumbotron text-center" style="background-color: #f8f9fa;">
+    <h1 class="display-3">¡Bienvenido al Sistema de Gestión Tecnológica Hospitalaria!</h1>
+    <p class="lead">Aquí podrás gestionar todos los aspectos relacionados con la tecnología en el hospital.</p>
+    <hr class="my-2">
+    <p>Utiliza las opciones del menú para navegar por el sistema.</p>
+    
+    
+    <img src="{% static 'c:\Users\famil\Downloads\clinica-internacional-equipo-biomedico-maquinas.jpg' %}"  class="img-fluid">
+</div>
+{% endblock %}
+
