@@ -1,8 +1,13 @@
 from django.urls import path
-from .import views
+from . import views
+from django.conf import settings
+from django.contrib.staticfiles.urls import static
 
 urlpatterns = [
     path('',views.inicio,name='inicio'),
-    path('Ingresar',views.ingresar,name='Ingresar'),
-    path('Equipos',views.Equipos,name='equipos'),
+    path('Equipos/ingresar',views.ingresar,name='ingresar'),
+    path('Equipos',views.Equipos,name='Equipos'),
+    path('Equipos/editar/<int:id>/',views.editar,name='editar'),
+    path('borrar/<int:id>/' , views.borrar, name='borrar'),
+
 ]

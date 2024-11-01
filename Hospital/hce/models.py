@@ -3,9 +3,17 @@ from django.db import models
 # Create your models here.
 class Equipo(models.Model):
     id = models.AutoField(primary_key=True)
-    Marca = models.CharField(max_length=100)
-    Modelo = models.CharField(max_length=100)
-    Serial = models.CharField(max_length=100)
-    Área = models.CharField(max_length=100)
-    Responsable = models.CharField(max_length=100)
+    Nombre = models.TextField(max_length=60)
+    Marca = models.TextField(max_length=60)
+    Modelo = models.TextField(max_length=60)
+    Serial = models.TextField(max_length=60)
+    Area = models.TextField(max_length=60, default='Default Area')
+    Responsable = models.TextField(max_length=60)
     
+
+class Responsable(models.Model):
+    id = models.AutoField(primary_key=True)
+    documento = models.TextField(max_length=30)
+    nombre = models.TextField(max_length=60)
+    apellido = models.TextField(max_length=60)
+    correo = models.TextField(max_length=100)

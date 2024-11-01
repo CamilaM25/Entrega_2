@@ -15,11 +15,12 @@ class Migration(migrations.Migration):
             name='Equipo',
             fields=[
                 ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('Marca', models.TextField(max_length=100)),
-                ('Modelo', models.TextField(max_length=100)),
-                ('Serial', models.TextField(max_length=100)),
-                ('Área', models.TextField(max_length=100)),
-                ('Responsable', models.TextField(max_length=100)),
+                ('Nombre', models.TextField(max_length=60)),
+                ('Marca', models.TextField(max_length=60)),
+                ('Modelo', models.TextField(max_length=60)),
+                ('Serial', models.TextField(max_length=60)),
+                ('Area', models.TextField(max_length=60)),
+                ('Responsable', models.TextField(max_length=60)),
             ],
         ),
     ]
