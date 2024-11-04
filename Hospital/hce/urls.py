@@ -9,5 +9,8 @@ urlpatterns = [
     path('Equipos',views.Equipos,name='Equipos'),
     path('Equipos/editar/<int:id>/',views.editar,name='editar'),
     path('borrar/<int:id>/' , views.borrar, name='borrar'),
+    path('Responsables' , views.Responsables, name='Responsables'),
+    path('Responsables/crear' , views.Responsablescrear, name='Responsablescrear'),
+
 
 ]

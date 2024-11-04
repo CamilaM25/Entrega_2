@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import HttpResponse
 from .models import Equipo, Responsable
-from .forms import EquipoForm
+from .forms import EquipoForm,ResponsableForm
 # Create your views here.
 
 def inicio (request):
@@ -18,6 +18,22 @@ def ingresar (request): #análogo a crear
 def Equipos(request):
     equipo = Equipo.objects.all() #trae el objeto con toda su informacion
     return render(request ,  'Equipos/index.html', {'equipos':equipo}) #captura la información desde la base de datos
+
+def Responsables(request):
+     asignarResponsable = Responsable.objects.all() 
+     return render(request,'Responsables/index.html',{'Responsables':asignarResponsable})
+
+def Responsablescrear(request):
+    infoEquipo = ResponsableForm(request.POST or None)
+    if infoEquipo.is_valid():
+        infoEquipo.save()
+        return redirect('Responsables')
+    else:
+        print(infoEquipo.errors)  # Muestra errores del formulario para depuración
+    return render(request, 'Responsables/crear.html', {'form': infoEquipo})
+
+
+
 
 def borrar(request, id):
     equipo = Equipo.objects.get(id=id)

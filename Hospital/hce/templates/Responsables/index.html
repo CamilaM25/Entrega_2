@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% load static %}  <!-- Cargar archivos estáticos -->
+
+{% block title %} Página de inicio {% endblock %}
+
+{% block contenido %}
+
+<div class="card">
+    <div class="card-header">
+        <h1>Lista de Responsables en la base de datos</h1>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Documento</th>
+                    <th>Nombre Completo</th>
+                    <th>Correo Electronico</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for Asignado in Responsables %}
+                <tr>
+                    <td>{{Asignado.id}}</td>
+                    <td>{{Asignado.documento}}</td>
+                    <td>{{Asignado.nombre}} {{Asignado.apellido}}</td>
+                    <td>{{Asignado.correo}}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic outlined example">
+                            <a name="" id="" class="btn btn-info" href="{% url 'editar' Asignado.id %}" role="button">Editar</a>
+                            <a name="" id="" class="btn btn-danger" href="{% url 'borrar' Asignado.id %}" role="button">Borrar</a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer text-muted">
+        <h3>IngSoft 2.0</h3>
+    </div>
+</div>
+
+{% endblock %}
