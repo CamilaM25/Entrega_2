@@ -8,7 +8,7 @@ class Equipo(models.Model):
     Modelo = models.TextField(max_length=60)
     Serial = models.TextField(max_length=60)
     Area = models.TextField(max_length=60, default='Default Area')
-    Responsable = models.TextField(max_length=60)
+    Responsable = models.IntegerField()
     
 
 class Responsable(models.Model):

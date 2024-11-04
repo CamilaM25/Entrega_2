@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% load static %}  <!-- Cargar archivos estáticos -->
+
+{% block title %} Página de inicio {% endblock %}
+
+{% block contenido %}
+
+<div class="card">
+    <div class="card-header">
+        <h1> Crear un Responsable </h1>
+    </div>
+    <div class="card-body">
+        <form action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="documento">Documento</label>
+                <input type="number" name="documento" id="documento" class="form-control" placeholder="" aria-describedby="helpId">
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="" aria-describedby="helpId">
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellidos</label>
+                <input type="text" name="apellido" id="apellido" class="form-control" placeholder="" aria-describedby="helpId">
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo</label>
+                <input type="email" name="correo" id="correo" class="form-control" placeholder="" aria-describedby="helpId">
+            </div>
+            
+            <br><br>
+            <button type="submit" class="btn btn-outline-success">Crear</button>
+           
+            <a class="btn btn-warning" href="{% url 'Responsables' %}" role="button">Cancelar</a>
+        </form>
+    </div>
+    <div class="card-footer text-muted">
+        <h3>IngSoft 2.0</h3>
+    </div>
+</div>
+
+<div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="alertModalLabel">Atención</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Por favor, complete todos los campos antes de crear un nuevo responsable.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function validateForm() {
+    var documento = document.getElementById("documento").value;
+    var nombre = document.getElementById("nombre").value;
+    var apellido = document.getElementById("apellido").value;
+    var correo = document.getElementById("correo").value;
+
+  
+    if (documento === "" || nombre === "" || apellido === "" || correo === "") {
+        
+        var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+        alertModal.show();
+        return false; 
+    }
+    
+    return true; 
+}
+</script>
+
+{% endblock %}
