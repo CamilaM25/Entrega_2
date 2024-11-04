@@ -10,12 +10,11 @@ def inicio (request):
 
 def ingresar (request): #análogo a crear
      infoEquipo=EquipoForm(request.POST or None)
-     print(infoEquipo)
+     asignarResponsable=Responsable.objects.all()
      if infoEquipo.is_valid():
           infoEquipo.save()
-
           return redirect('Equipos')
-     return render(request,'Equipos/ingresar.html')
+     return render(request,'Equipos/ingresar.html',{'Responsables':asignarResponsable})
 
 def Equipos(request):
     equipo = Equipo.objects.all() #trae el objeto con toda su informacion
@@ -44,13 +43,18 @@ def borrar(request, id):
 
 def editar(request, id):
     equipo = Equipo.objects.get(id=id)
+    asignarResponsable = Responsable.objects.all() 
     formEquipo = EquipoForm(request.POST or None, request.FILES or None, instance=equipo)
-    print(formEquipo.is_valid())
+
+    # Prellenar el campo "Responsable" con la ID del responsable actual
     if formEquipo.is_valid() and request.method == 'POST':
         formEquipo.save()
         messages.success(request, 'La información se actualizó correctamente.')
-
         return redirect('Equipos')
-    
-    return render(request, 'Equipos/editar.html' , {'formEquipo':formEquipo})
+
+    return render(request,'Equipos/editar.html', {
+        'formEquipo': formEquipo,
+        'Responsables': asignarResponsable,
+        'responsable_actual': equipo.Responsable  
+    })
 

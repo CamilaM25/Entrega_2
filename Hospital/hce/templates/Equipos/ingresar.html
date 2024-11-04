@@ -17,27 +17,27 @@
 
             <div class="col-md-5">
                 <label for="InputNombre">Nombre</label>
-                <input type="text" name="Nombre" id="InputNombre" class="form-control" placeholder="" aria-describedby="helpId">
+                <input type="text" name="Nombre" id="InputNombre" class="form-control" placeholder="" required aria-describedby="helpId">
             </div>
               
             <div class="col-md-5">
                 <label for="InputMarca">Marca</label>
-                <input type="text" name="Marca" id="InputMarca" class="form-control" placeholder="" aria-describedby="helpId">
+                <input type="text" name="Marca" id="InputMarca" class="form-control" placeholder="" required aria-describedby="helpId">
             </div>
 
             <div class="col-md-5">
                 <label for="InputModelo">Modelo</label>
-                <input type="text" name="Modelo" id="InputModelo" class="form-control" placeholder="" aria-describedby="helpId">
+                <input type="text" name="Modelo" id="InputModelo" class="form-control" placeholder="" required aria-describedby="helpId">
             </div>
 
             <div class="col-md-5">
                 <label for="InputSerial">Serial</label>
-                <input type="text" name="Serial" id="InputSerial" class="form-control" placeholder="" aria-describedby="helpId">
+                <input type="text" name="Serial" id="InputSerial" class="form-control" placeholder="" required aria-describedby="helpId">
             </div>
 
             <div class="col-md-5">
                 <label for="InputArea" class="form-label">Área</label>
-                <select name="Area" id="InputArea" class="form-select" aria-describedby="helpId">
+                <select name="Area" id="InputArea" class="form-select" required aria-describedby="helpId">
                     <option selected disabled>Seleccione...</option>
                     <option>Biomédica</option>
                     <option>Infraestructura</option>
@@ -47,12 +47,11 @@
 
             <div class="col-md-5">
                 <label for="InputResponsable" class="form-label">Responsable</label>
-                <select name="Responsable" id="InputResponsable" class="form-select" aria-describedby="helpId">
+                <select name="Responsable" id="InputResponsable" class="form-select" required aria-describedby="helpId">
                     <option selected disabled>Seleccione...</option>
-                    <option>Camila</option>
-                    <option>Alexandra</option>
-                    <option>Andrés</option>
-                    <option>Sherlyn</option>
+                    {% for Asignado in Responsables %}
+                    <option value="{{ Asignado.id }}">{{ Asignado.nombre }} {{ Asignado.apellido }}</option>
+                    {% endfor %}
                 </select>
             </div>
 
@@ -82,7 +81,6 @@
 </div>
 
 <script>
-
 // método para validar los campos
 function validateForm() {
     var nombre = document.getElementById("InputNombre").value;
