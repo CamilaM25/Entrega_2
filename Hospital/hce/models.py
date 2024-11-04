@@ -9,6 +9,7 @@ class Equipo(models.Model):
     Serial = models.TextField(max_length=60)
     Area = models.TextField(max_length=60, default='Default Area')
     Responsable = models.IntegerField()
+    imagen = models.ImageField(upload_to='imagenes/' , null=True)
     
 
 class Responsable(models.Model):

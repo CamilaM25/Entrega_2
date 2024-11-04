@@ -9,7 +9,7 @@ def inicio (request):
      return render(request,'pages/index.html')
 
 def ingresar (request): #análogo a crear
-     infoEquipo=EquipoForm(request.POST or None)
+     infoEquipo=EquipoForm(request.POST, request.FILES or None)
      asignarResponsable=Responsable.objects.all()
      if infoEquipo.is_valid():
           infoEquipo.save()

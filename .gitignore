@@ -1,4 +1,4 @@
 #pycache
-Hospital\Hospital\__pycache__/
-Hospital\hce\migrations\__pycache__/
-Hospital\hce\__pycache__/
+Hospital/Hospital/__pycache__/
+Hospital/hce/migrations/__pycache__/
+Hospital/hce/__pycache__/
