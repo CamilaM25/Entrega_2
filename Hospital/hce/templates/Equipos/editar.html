@@ -25,41 +25,55 @@
 
     <div class="card-body">
 
-        <form action="" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            
-            <div class="form-group">
-                <label for="">Nombre</label>
-                <input type="text" name="nombre" id="Nombre" class="form-control" placeholder="" aria-describedby="helpId" value="{{formEquipo.Nombre.value}}">
-              </div>
-              <div class="form-group">
-                <label for="">Marca</label>
-                <input type="text" name="marca" id="Marca" class="form-control" placeholder="" aria-describedby="helpId" value="{{formEquipo.Marca.value}}">
-              </div>
-              <div class="form-group">
-                <label for="">Modelo</label>
-                <input type="text" name="modelo" id="Modelo" class="form-control" placeholder="" aria-describedby="helpId" value="{{formEquipo.Modelo.value}}">
-              </div>
-
-              <div class="form-group">
-                <label for="">Serial</label>
-                <input type="text" name="serial" id="Serial" class="form-control"  placeholder="" aria-describedby="helpId" value="{{formEquipo.Serial.value}}">
-              </div>
-
-              <div class="form-group">
-                <label for="">Area</label>
-                <input type="text" name="area" id="Area" class="form-control"  placeholder="" aria-describedby="helpId" value="{{formEquipo.Area.value}}">
-              </div>
-
-              <div class="form-group">
-                <label for="">Responsable</label>
-                <input type="text" name="responsable" id="Responsable" class="form-control"  placeholder="" aria-describedby="helpId" value="{{formEquipo.Responsable.value}}">
-              </div>
-
-              <br><br>
-              <button type="submit" class="btn btn-primary" href="{% url 'Equipos' %}" role="button"> Actualizar</button>
-              <a name="" id="" class="btn btn-warning" href="{% url 'Equipos' %}" role="button">Cancelar</a>
-        </form>
+      <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="InputNombre">Nombre</label>
+            <input type="text" name="Nombre" id="InputNombre" class="form-control" placeholder="" aria-describedby="helpId" value="{{ formEquipo.Nombre.value }}">
+        </div>
+        
+        <div class="form-group">
+            <label for="InputMarca">Marca</label>
+            <input type="text" name="Marca" id="InputMarca" class="form-control" placeholder="" aria-describedby="helpId" value="{{ formEquipo.Marca.value }}">
+        </div>
+        
+        <div class="form-group">
+            <label for="InputModelo">Modelo</label>
+            <input type="text" name="Modelo" id="InputModelo" class="form-control" placeholder="" aria-describedby="helpId" value="{{ formEquipo.Modelo.value }}">
+        </div>
+    
+        <div class="form-group">
+            <label for="InputSerial">Serial</label>
+            <input type="text" name="Serial" id="InputSerial" class="form-control" placeholder="" aria-describedby="helpId" value="{{ formEquipo.Serial.value }}">
+        </div>
+    
+        <div class="form-group">
+            <label for="InputArea">Área</label>
+            <select name="Area" id="InputArea" class="form-select" aria-describedby="helpId">
+                <option selected disabled>Seleccione...</option>
+                <option value="Biomédica" {% if formEquipo.Area.value == "Biomédica" %}selected{% endif %}>Biomédica</option>
+                <option value="Infraestructura" {% if formEquipo.Area.value == "Infraestructura" %}selected{% endif %}>Infraestructura</option>
+                <option value="Sistemas" {% if formEquipo.Area.value == "Sistemas" %}selected{% endif %}>Sistemas</option>
+            </select>
+        </div>
+    
+        <div class="form-group">
+            <label for="InputResponsable">Responsable</label>
+            <select name="Responsable" id="InputResponsable" class="form-select" aria-describedby="helpId">
+                <option selected disabled>Seleccione...</option>
+                <option value="Camila" {% if formEquipo.Responsable.value == "Camila" %}selected{% endif %}>Camila</option>
+                <option value="Alexandra" {% if formEquipo.Responsable.value == "Alexandra" %}selected{% endif %}>Alexandra</option>
+                <option value="Andrés" {% if formEquipo.Responsable.value == "Andrés" %}selected{% endif %}>Andrés</option>
+                <option value="Sherlyn" {% if formEquipo.Responsable.value == "Sherlyn" %}selected{% endif %}>Sherlyn</option>
+            </select>
+        </div>
+    
+        <br><br>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+        <a class="btn btn-warning" href="{% url 'Equipos' %}" role="button">Cancelar</a>
+    </form>
+    
         
  </div>
 </div>

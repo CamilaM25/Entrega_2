@@ -10,8 +10,10 @@ def inicio (request):
 
 def ingresar (request): #análogo a crear
      infoEquipo=EquipoForm(request.POST or None)
+     print(infoEquipo)
      if infoEquipo.is_valid():
           infoEquipo.save()
+
           return redirect('Equipos')
      return render(request,'Equipos/ingresar.html')
 
@@ -27,10 +29,12 @@ def borrar(request, id):
 def editar(request, id):
     equipo = Equipo.objects.get(id=id)
     formEquipo = EquipoForm(request.POST or None, request.FILES or None, instance=equipo)
+    print(formEquipo.is_valid())
     if formEquipo.is_valid() and request.method == 'POST':
         formEquipo.save()
         messages.success(request, 'La información se actualizó correctamente.')
 
         return redirect('Equipos')
+    
     return render(request, 'Equipos/editar.html' , {'formEquipo':formEquipo})
 

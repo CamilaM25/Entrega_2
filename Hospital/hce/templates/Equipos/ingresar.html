@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 
-{% block title%} Ingresar equipo {% endblock  %}
+{% load static %} 
 
-{% block contenido%}
+{% block title %} Ingresar equipo {% endblock %}
+
+{% block contenido %}
 
 <div class="card">
     <div class="card-header">
@@ -10,43 +12,94 @@
     </div>
 
     <div class="card-body">
-
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
             {% csrf_token %}
-            
-            <div class="form-group">
-                <label for="">Nombre</label>
-                <input type="text" name="nombre" id="Nombre" class="form-control" placeholder="" aria-describedby="helpId">
-              </div>
-              <div class="form-group">
-                <label for="">Marca</label>
-                <input type="text" name="marca" id="Marca" class="form-control" placeholder="" aria-describedby="helpId">
-              </div>
-              <div class="form-group">
-                <label for="">Modelo</label>
-                <input type="text" name="modelo" id="Modelo" class="form-control" placeholder="" aria-describedby="helpId">
-              </div>
 
-              <div class="form-group">
-                <label for="">Serial</label>
-                <input type="text" name="serial" id="Serial" class="form-control"  placeholder="" aria-describedby="helpId">
-              </div>
+            <div class="col-md-5">
+                <label for="InputNombre">Nombre</label>
+                <input type="text" name="Nombre" id="InputNombre" class="form-control" placeholder="" aria-describedby="helpId">
+            </div>
+              
+            <div class="col-md-5">
+                <label for="InputMarca">Marca</label>
+                <input type="text" name="Marca" id="InputMarca" class="form-control" placeholder="" aria-describedby="helpId">
+            </div>
 
-              <div class="form-group">
-                <label for="">Area</label>
-                <input type="text" name="area" id="Area" class="form-control"  placeholder="" aria-describedby="helpId">
-              </div>
+            <div class="col-md-5">
+                <label for="InputModelo">Modelo</label>
+                <input type="text" name="Modelo" id="InputModelo" class="form-control" placeholder="" aria-describedby="helpId">
+            </div>
 
-              <div class="form-group">
-                <label for="">Responsable</label>
-                <input type="text" name="responsable" id="Responsable" class="form-control"  placeholder="" aria-describedby="helpId">
-              </div>
+            <div class="col-md-5">
+                <label for="InputSerial">Serial</label>
+                <input type="text" name="Serial" id="InputSerial" class="form-control" placeholder="" aria-describedby="helpId">
+            </div>
 
-              <br><br>
-              <button type="submit" class="btn btn-primary">Ingresar</button>
-              <a name="" id="" class="btn btn-danger" href="{% url 'Equipos' %}" role="button">Cancelar</a>
+            <div class="col-md-5">
+                <label for="InputArea" class="form-label">Área</label>
+                <select name="Area" id="InputArea" class="form-select" aria-describedby="helpId">
+                    <option selected disabled>Seleccione...</option>
+                    <option>Biomédica</option>
+                    <option>Infraestructura</option>
+                    <option>Sistemas</option>
+                </select>
+            </div>
+
+            <div class="col-md-5">
+                <label for="InputResponsable" class="form-label">Responsable</label>
+                <select name="Responsable" id="InputResponsable" class="form-select" aria-describedby="helpId">
+                    <option selected disabled>Seleccione...</option>
+                    <option>Camila</option>
+                    <option>Alexandra</option>
+                    <option>Andrés</option>
+                    <option>Sherlyn</option>
+                </select>
+            </div>
+
+            <br><br>
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+            <a class="btn btn-danger" href="{% url 'Equipos' %}" role="button">Cancelar</a>
         </form>
-        
- </div>
+    </div>
+</div>
+
+<!-- Modal de Alerta -->
+<div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="alertModalLabel">Atención</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Por favor, complete todos los campos antes de ingresar un nuevo equipo.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+// método para validar los campos
+function validateForm() {
+    var nombre = document.getElementById("InputNombre").value;
+    var marca = document.getElementById("InputMarca").value;
+    var modelo = document.getElementById("InputModelo").value;
+    var serial = document.getElementById("InputSerial").value;
+    var area = document.getElementById("InputArea").value;
+    var responsable = document.getElementById("InputResponsable").value;
+
+    if (nombre === "" || marca === "" || modelo === "" || serial === "" || area === "Seleccione..." || responsable === "Seleccione...") {
+        var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+        alertModal.show();
+        return false; 
+    }
+    
+    return true; 
+}
+</script>
 
 {% endblock %}
