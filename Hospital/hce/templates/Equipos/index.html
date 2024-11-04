@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
-{% block title%} Lista de equipos {% endblock  %}
+{% block title %} Lista de equipos {% endblock %}
 
-{% block contenido%}
+{% block contenido %}
 
 <div class="card">
     <div class="card-header">
@@ -12,19 +12,23 @@
 {% load static %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<div class="container mt-4">
+<div class="container-fluid mt-4">
   <div class="row">
     {% for equipo in equipos %}
       <div class="col-md-4 mb-4">
-        <div class="card" style="width: 100%;">
-          <!-- Imagen de equipo o imagen por defecto si no existe -->
-          <!-- <img class="card-img-top" src="{{ equipo.imagen_url|default:'{% static "images/default_image.jpg" %}' }}" alt="Imagen de {{ equipo.Nombre }}"> -->
+        <div class="card">
+          <div class="card-header">
+            {{ equipo.Nombre }}
+          </div>
           <div class="card-body">
+            <img class="card-img-top mb-3" src="{% if equipo.imagen %}{{ equipo.imagen.url }}{% else %}{% static 'images/default_image.jpg' %}{% endif %}" alt="Imagen de {{ equipo.Nombre }}">
             <h5 class="card-title">{{ equipo.Nombre }}</h5>
             <p class="card-text">
               <strong>Marca:</strong> {{ equipo.Marca }}<br>
+              <strong>Modelo:</strong> {{ equipo.Modelo }}<br>
               <strong>Serial:</strong> {{ equipo.Serial }}<br>
-             
+              <strong>Área:</strong> {{ equipo.Area }}<br>
+              <!--<strong>Responsable:</strong> {{ equipo.Responsable }}<br>-->
             </p>
           </div>
           <ul class="list-group list-group-flush">
@@ -34,6 +38,7 @@
             <a href="{% url 'editar' equipo.id %}" class="btn btn-info btn-sm">Editar</a>
             <a href="{% url 'borrar' equipo.id %}" class="btn btn-danger btn-sm">Borrar</a>
           </div>
+          <div class="card-footer">Pie de página</div>
         </div>
       </div>
     {% endfor %}
@@ -41,3 +46,4 @@
 </div>
 
 {% endblock %}
+
