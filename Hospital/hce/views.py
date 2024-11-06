@@ -18,7 +18,20 @@ def ingresar (request): #análogo a crear
 
 def Equipos(request):
     equipo = Equipo.objects.all() #trae el objeto con toda su informacion
-    return render(request ,  'Equipos/index.html', {'equipos':equipo}) #captura la información desde la base de datos
+    return render(request , 'Equipos/index.html', {'equipos':equipo}) #captura la información desde la base de datos
+
+#secciones para cada área de equipos
+
+def Biomedica(request):
+    equipo = Equipo.objects.all() #trae el objeto con toda su informacion
+    return render(request , 'Equipos/biomedica.html', {'equipos':equipo}) #captura la información desde la base de datos
+def Infraestructura(request):
+    equipo = Equipo.objects.all() #trae el objeto con toda su informacion
+    return render(request , 'Equipos/infraestructura.html', {'equipos':equipo}) #captura la información desde la base de datos
+def Sistemas(request):
+    equipo = Equipo.objects.all() #trae el objeto con toda su informacion
+    return render(request , 'Equipos/sistemas.html', {'equipos':equipo}) #captura la información desde la base de datos
+
 
 def Responsables(request):
      asignarResponsable = Responsable.objects.all() 

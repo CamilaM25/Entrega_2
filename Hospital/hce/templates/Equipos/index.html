@@ -6,44 +6,73 @@
 
 <div class="card">
     <div class="card-header">
-         Lista de Equipos
+         Secciones por área
+        
     </div>
 
 {% load static %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    .card-hover:hover .card-text {
+        display: block;
+    }
+    .card-text {
+        display: none;
+    }
+</style>
 
 <div class="container-fluid mt-4">
   <div class="row">
-    {% for equipo in equipos %}
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <div class="card-header">
-            {{ equipo.Nombre }}
-          </div>
-          <div class="card-body">
-            <img class="card-img-top mb-3" src="{% if equipo.imagen %}{{ equipo.imagen.url }}{% else %}{% static 'images/default_image.jpg' %}{% endif %}" alt="Imagen de {{ equipo.Nombre }}">
-            <h5 class="card-title">{{ equipo.Nombre }}</h5>
-            <p class="card-text">
-              <strong>Marca:</strong> {{ equipo.Marca }}<br>
-              <strong>Modelo:</strong> {{ equipo.Modelo }}<br>
-              <strong>Serial:</strong> {{ equipo.Serial }}<br>
-              <strong>Área:</strong> {{ equipo.Area }}<br>
-              <!--<strong>Responsable:</strong> {{ equipo.Responsable }}<br>-->
-            </p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"><strong>ID:</strong> {{ equipo.id }}</li>
-          </ul>
-          <div class="card-body">
-            <a href="{% url 'editar' equipo.id %}" class="btn btn-info btn-sm">Editar</a>
-            <a href="{% url 'borrar' equipo.id %}" class="btn btn-danger btn-sm">Borrar</a>
-          </div>
-          <div class="card-footer">Pie de página</div>
+    <!-- Tarjeta para Área de Infraestructura -->
+    <div class="col-md-4 mb-4">
+      <div class="card card-hover" style="cursor: pointer;"onclick="location.href='{% url 'Infraestructura' %}'">
+        <div class="card-header">
+          Área de Infraestructura
+        </div>
+        <div class="card-body">
+          <img class="card-img-top mb-3" src="../../imagenes/infraestructura.png" alt="Área de Infraestructura">
+          <h5 class="card-title">Área de Infraestructura</h5>
+          <p class="card-text">
+           Elementos estructurales y de soporte correspondientes a diferentes espacios dentro de la IPS.
+          </p>
         </div>
       </div>
-    {% endfor %}
+    </div>
+    <!-- Tarjeta para Área de Sistemas -->
+    <div class="col-md-4 mb-4">
+      <div class="card card-hover" style="cursor: pointer;"onclick="location.href='{% url 'Sistemas' %}'">
+        <div class="card-header">
+          Área de Sistemas
+        </div>
+        <div class="card-body">
+          <img class="card-img-top mb-3" src="../../imagenes/sistemas.png" alt="Área de Sistemas">
+          <h5 class="card-title">Área de Sistemas</h5>
+          <p class="card-text">
+            Recursos tecnológicos y de comunicación que facilitan la gestión de la información clínica y operativa dentro de la institución.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Tarjeta para Área Biomédica -->
+    <div class="col-md-4 mb-4">
+      <div class="card card-hover" style="cursor: pointer;"onclick="location.href='{% url 'Biomedica' %}'">
+        <div class="card-header">
+          Área Biomédica
+        </div>
+        <div class="card-body">
+          <img class="card-img-top mb-3" src="../../imagenes/biomedica.png" alt="Área Biomédica">
+          <h5 class="card-title">Área Biomédica</h5>
+          <p class="card-text">
+            Gestión de los activos tecnológicos relacionados con el diagnóstico y tratamiento de pacientes.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+
+  
 
 {% endblock %}
+
+
 
