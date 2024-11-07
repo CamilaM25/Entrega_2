@@ -36,7 +36,7 @@
               <li class="list-group-item"><strong>ID:</strong> {{ equipo.id }}</li>
             </ul>
             <div class="card-body">
-              <a href="{% url 'editar' equipo.id %}" class="btn btn-info btn-sm">Editar</a>
+              <a href="{% url 'ver' equipo.id%}" class="btn btn-info btn-sm"> Ver más</a>
               <a href="{% url 'borrar' equipo.id %}" class="btn btn-danger btn-sm">Borrar</a>
             </div>
             <div class="card-footer">Pie de página</div>
@@ -47,7 +47,7 @@
   </div>
 </div>
 <div class="mt-4 text-center"> 
-  <a href="{% url 'Equipos' %}" class="btn btn-primary">Volver a la página principal</a> 
+  <a href="{% url 'Equipos' %}" class="btn btn-primary">Volver</a> 
 </div> 
 </div>
 

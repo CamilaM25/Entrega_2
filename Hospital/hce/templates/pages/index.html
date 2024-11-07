@@ -5,13 +5,24 @@
 {% block title %} Página de inicio {% endblock %}
 
 {% block contenido %}
-<div class="jumbotron text-center" style="background-color: #f8f9fa;">
-    <h1 class="display-3">¡Bienvenido al Sistema de Gestión Tecnológica Hospitalaria!</h1>
-    <p class="lead">Aquí podrás gestionar todos los aspectos relacionados con la tecnología en el hospital.</p>
-    <hr class="my-2">
-    <p>Utiliza las opciones del menú para navegar por el sistema.</p>
-    
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Poppins:wght@600&display=swap" rel="stylesheet">
 
-    <img src="{% static 'Imagenes\dispositivos-medicos-cuales-son-los-dispositivos-médicos-mas-consumidos.jpg' %}" class="img-fluid">
+<div class="jumbotron text-center" style="background-color: #ffffff; color: #2c3e50;"> <!-- Fondo blanco y texto azul -->
+    <!-- Título con fuente llamativa -->
+    <h1 class="display-3" style="font-family: 'Roboto Slab', serif; font-size: 3.5rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); color: #3498db;">
+        ¡Bienvenido al Sistema de Gestión Tecnológica Hospitalaria!
+    </h1>
+    <!-- Texto adicional con fuente llamativa -->
+    <p class="lead" style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.25rem; color: #1d3c6a">
+        Aquí podrás gestionar todos los aspectos relacionados con la tecnología en el hospital.
+    </p>
+    <hr class="my-2" style="border-color: #1d3c6a;"> <!-- Línea horizontal azul -->
+    <p style="font-family: 'Poppins', sans-serif; color: #1d3c6a; font-size: 1rem;">
+        Utiliza las opciones del menú para navegar por el sistema.
+    </p>
+    <div class="image-container">
+        <!-- Imagen con tamaño reducido -->
+        <img src="../../imagenes/clinica-internacional-equipo-biomedico-maquinas.jpg" class="img-fluid" style="max-width: 50%; height: auto;">
+    </div>
 </div>
 {% endblock %}

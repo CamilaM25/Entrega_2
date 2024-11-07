@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %} Ver Equipo {% endblock %}
+
+{% block contenido %}
+
+<div class="container mt-4">
+    <div class="card">
+        
+        <div class="card-header text-center">
+            <h3>Detalles del Equipo</h3>
+        </div>
+
+        
+        <div class="card-body text-center">
+            
+            <img class="card-img-top mb-3 img-thumbnail" 
+                 src="{% if equipo.imagen %}{{ equipo.imagen.url }}{% else %}{% static 'images/default_image.jpg' %}{% endif %}" 
+                 alt="Imagen de {{ equipo.Nombre }}" style="width: 150px; height: auto;">
+
+            
+            <h5 class="card-title">{{ equipo.Nombre }}</h5>
+
+            
+            <p class="card-text">
+                <span class="font-weight-bold">Marca:</span> {{ equipo.Marca }}<br>
+                <span class="font-weight-bold">Modelo:</span> {{ equipo.Modelo }}<br>
+                <span class="font-weight-bold">Serial:</span> {{ equipo.Serial }}<br>
+                <span class="font-weight-bold">Área:</span> {{ equipo.Area }}<br>
+                <span class="font-weight-bold">Responsable:</span> {{ equipo.Responsable.nombre }} {{ equipo.Responsable.apellido }}<br>
+            </p>
+
+            <!-- Botones de acción con menos espacio y centrados -->
+            <div class="d-flex justify-content-center">
+                <a class="btn btn-primary btn-sm" href="{% url 'editar' equipo.id %}" role="button">Editar</a>
+                <a href="{% url 'Equipos' %}" class="btn btn-danger">Volver atrás</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

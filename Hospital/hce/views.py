@@ -71,3 +71,6 @@ def editar(request, id):
         'responsable_actual': equipo.Responsable  
     })
 
+def ver (request,id):
+    equipo = Equipo.objects.get(id=id) #Busca el Id
+    return render(request, 'Equipos/ver.html', {'equipo': equipo})
