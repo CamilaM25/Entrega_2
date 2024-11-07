@@ -7,22 +7,20 @@
 {% block contenido %}
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Poppins:wght@600&display=swap" rel="stylesheet">
 
-<div class="jumbotron text-center" style="background-color: #ffffff; color: #2c3e50;"> <!-- Fondo blanco y texto azul -->
-    <!-- Título con fuente llamativa -->
+<div class="jumbotron text-center" style="background-color: #ffffff; color: #2c3e50;"> 
+    
     <h1 class="display-3" style="font-family: 'Roboto Slab', serif; font-size: 3.5rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); color: #3498db;">
         Información de Responsables
     </h1>
     <p class="lead" style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.25rem; color: #1d3c6a">
         Por favor, seleccione entre las siguientes opciones:
     </p>
-    <hr class="my-2" style="border-color: #1d3c6a;"> <!-- Línea horizontal azul -->
-    
-    <!-- Menú de opciones (Consultar o Crear) -->
+    <hr class="my-2" style="border-color: #1d3c6a;"> 
     <div class="menu" style="margin-top: 30px;">
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <a href="{% url 'Responsables' %}" class="btn btn-primary" style="width: 100%; margin-bottom: 15px;">
-                    Ver Lista de Responsables
+                     Ver Lista de Responsables
                 </a>
             </div>
             <div class="col-md-4">

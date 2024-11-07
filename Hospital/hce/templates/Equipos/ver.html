@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %} Ver Equipo {% endblock %}
+{% block title %} Ver Información del Equipo {% endblock %}
 
 {% block contenido %}
 
@@ -32,7 +32,7 @@
                 <span class="font-weight-bold">Responsable:</span> {{ equipo.Responsable.nombre }} {{ equipo.Responsable.apellido }}<br>
             </p>
 
-            <!-- Botones de acción con menos espacio y centrados -->
+            
             <div class="d-flex justify-content-center">
                 <a class="btn btn-primary btn-sm" href="{% url 'editar' equipo.id %}" role="button">Editar</a>
                 <a href="{% url 'Equipos' %}" class="btn btn-danger">Volver atrás</a>
