@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
-{% load static %}  <!-- Cargar archivos estáticos -->
+{% load static %} 
 
-{% block title %} Página de inicio {% endblock %}
+{% block title %} Información de Equipos {% endblock %}
 
 {% block contenido %}
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Poppins:wght@600&display=swap" rel="stylesheet">
@@ -10,33 +10,35 @@
 <div class="jumbotron text-center" style="background-color: #ffffff; color: #2c3e50;"> <!-- Fondo blanco y texto azul -->
     <!-- Título con fuente llamativa -->
     <h1 class="display-3" style="font-family: 'Roboto Slab', serif; font-size: 3.5rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); color: #3498db;">
-        ¡Bienvenido al Sistema de Gestión Tecnológica Hospitalaria!
+        Información de Equipos
     </h1>
-    <!-- Texto adicional con fuente llamativa -->
     <p class="lead" style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.25rem; color: #1d3c6a">
-        Aquí podrás gestionar todos los aspectos relacionados con la tecnología en el hospital.
+        Por favor, seleccione entre las siguientes opciones para gestionar los equipos:
     </p>
     <hr class="my-2" style="border-color: #1d3c6a;"> <!-- Línea horizontal azul -->
-    <p style="font-family: 'Poppins', sans-serif; color: #1d3c6a; font-size: 1rem;">
-        Utiliza las opciones del menú para navegar por el sistema.
-    </p>
-
-   
+    
+    <!-- Menú de opciones (Consultar o Crear) -->
     <div class="menu" style="margin-top: 30px;">
         <div class="row justify-content-center">
-            <div class="col-md-3">
-                <a href="{% url 'equipo' %}" class="btn btn-primary btn-lg" style="width: 100%; margin-bottom: 15px;"> Equipo</a>
+            <div class="col-md-4">
+                <a href="{% url 'Equipos' %}" class="btn btn-primary " style="width: 100%; margin-bottom: 15px;">
+                    Consultar Equipos
+                </a>
             </div>
-            <div class="col-md-3">
-                <a href="{% url 'responsable' %}" class="btn btn-primary btn-lg" style="width: 100%;"> Responsables</a>
-                  
-                
+            <div class="col-md-4">
+                <a href="{% url 'ingresar' %}" class="btn btn-warning " style="width: 100%;">
+                    Ingresar Nuevo Equipo
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'inicio' %}" class="btn btn-secondary " style="width: 100%; margin-bottom: 15px;">
+                    Volver a la Página Principal</a>
             </div>
         </div>
     </div>
-
+    
     <!-- Imagen con tamaño reducido -->
-    <div class="image-container">
+    <div class="image-container" style="margin-top: 30px;">
         <img src="../../imagenes/clinica-internacional-equipo-biomedico-maquinas.jpg" class="img-fluid" style="max-width: 50%; height: auto;">
     </div>
 </div>

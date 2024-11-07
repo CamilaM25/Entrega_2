@@ -8,6 +8,12 @@ from .forms import EquipoForm,ResponsableForm
 def inicio (request):
      return render(request,'pages/index.html')
 
+def equipo (request):
+    return render (request, 'Equipos/equipo.html')
+
+def responsable (request):
+    return render (request, 'Responsables/responsable.html')
+
 def ingresar (request): #análogo a crear
      infoEquipo=EquipoForm(request.POST, request.FILES or None)
      asignarResponsable=Responsable.objects.all()
