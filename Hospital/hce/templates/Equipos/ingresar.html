@@ -39,7 +39,7 @@
                 <label for="InputArea" class="form-label">Área</label>
                 <select name="Area" id="InputArea" class="form-select" required aria-describedby="helpId">
                     <option selected disabled>Seleccione...</option>
-                    <option>Biomédica</option>
+                    <option>Biomedica</option>
                     <option>Infraestructura</option>
                     <option>Sistemas</option>
                 </select>
@@ -61,7 +61,7 @@
               {{ form.as_p }}
             <br><br>
             <button type="submit" class="btn btn-primary">Ingresar</button>
-            <a class="btn btn-danger" href="{% url 'Equipos' %}" role="button">Cancelar</a>
+            <a class="btn btn-danger" href="{% url 'equipo' %}" role="button">Cancelar</a>
         </form>
     </div>
 </div>

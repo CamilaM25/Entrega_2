@@ -68,8 +68,8 @@ def editar(request, id):
     # Prellenar el campo "Responsable" con la ID del responsable actual
     if formEquipo.is_valid() and request.method == 'POST':
         formEquipo.save()
-        messages.success(request, 'La información se actualizó correctamente.')
-        return redirect('Equipos')
+        Area=equipo.Area
+        return render(request, 'Equipos/ver.html', {'equipo': equipo, 'area': Area})
 
     return render(request,'Equipos/editar.html', {
         'formEquipo': formEquipo,
@@ -80,3 +80,4 @@ def editar(request, id):
 def ver (request,id):
     equipo = Equipo.objects.get(id=id) #Busca el Id
     return render(request, 'Equipos/ver.html', {'equipo': equipo})
+

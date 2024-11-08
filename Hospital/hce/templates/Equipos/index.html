@@ -1,14 +1,18 @@
 {% extends "base.html" %}
 
-{% block title %} Lista de equipos {% endblock %}
+{% block title %} Consulta por areas {% endblock %}
 
 {% block contenido %}
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+
 
 <div class="card">
-    <div class="card-header">
-         Secciones por área
-        
-    </div>
+
+  <div class="jumbotron text-center" style="background-color: #ffffff; color: #2c3e50;"> 
+
+    <h1 class="display-3" style="font-family: 'Roboto Slab', serif; font-size: 3rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); color: #3498db;">
+      Consulta por áreas
+    </h1>
 
 {% load static %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -26,9 +30,9 @@
     <!-- Tarjeta para Área de Infraestructura -->
     <div class="col-md-4 mb-4">
       <div class="card card-hover" style="cursor: pointer;"onclick="location.href='{% url 'Infraestructura' %}'">
-        <div class="card-header">
+        <!-- <div class="card-header">
           Área de Infraestructura
-        </div>
+        </div> -->
         <div class="card-body">
           <img class="card-img-top mb-3" src="../../imagenes/infraestructura.png" alt="Área de Infraestructura">
           <h5 class="card-title">Área de Infraestructura</h5>
@@ -41,9 +45,9 @@
     <!-- Tarjeta para Área de Sistemas -->
     <div class="col-md-4 mb-4">
       <div class="card card-hover" style="cursor: pointer;"onclick="location.href='{% url 'Sistemas' %}'">
-        <div class="card-header">
+        <!-- <div class="card-header">
           Área de Sistemas
-        </div>
+        </div> -->
         <div class="card-body">
           <img class="card-img-top mb-3" src="../../imagenes/sistemas.png" alt="Área de Sistemas">
           <h5 class="card-title">Área de Sistemas</h5>
@@ -56,9 +60,9 @@
     <!-- Tarjeta para Área Biomédica -->
     <div class="col-md-4 mb-4">
       <div class="card card-hover" style="cursor: pointer;"onclick="location.href='{% url 'Biomedica' %}'">
-        <div class="card-header">
+        <!-- <div class="card-header">
           Área Biomédica
-        </div>
+        </div> -->
         <div class="card-body">
           <img class="card-img-top mb-3" src="../../imagenes/biomedica.png" alt="Área Biomédica">
           <h5 class="card-title">Área Biomédica</h5>
@@ -68,8 +72,10 @@
         </div>
       </div>
     </div>
+  </div>
+
     <div class="mt-4 text-center"> 
-      <a href="{% url 'inicio' %}" class="btn btn-primary">Volver</a> 
+      <a href="{% url 'equipo' %}" class="btn btn-primary">Volver</a> 
     </div>
   </div>
 

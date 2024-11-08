@@ -13,30 +13,28 @@
         Información de Equipos
     </h1>
     <p class="lead" style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.25rem; color: #1d3c6a">
-        Por favor, seleccione entre las siguientes opciones para gestionar los equipos:
+        Seleccione entre las siguientes opciones para gestionar los equipos
     </p>
     <hr class="my-2" style="border-color: #1d3c6a;"> 
+
+
 
     <div class="menu" style="margin-top: 30px;">
         <div class="row justify-content-center">
             <div class="col-md-4">
-                <a href="{% url 'Equipos' %}" class="btn btn-primary " style="width: 100%; margin-bottom: 15px;">
-                    Consultar Equipos
+                <a href="{% url 'Equipos' %}" class="btn btn-primary btn-lg" style="width: 100%; margin-bottom: 15px;">
+                    Consultar equipos
                 </a>
             </div>
             <div class="col-md-4">
-                <a href="{% url 'ingresar' %}" class="btn btn-warning " style="width: 100%;">
-                    Ingresar Nuevo Equipo
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="{% url 'inicio' %}" class="btn btn-secondary " style="width: 100%; margin-bottom: 15px;">
-                    Volver a la Página Principal</a>
+                <a href="{% url 'ingresar' %}" class="btn btn-primary btn-lg" style="width: 100%;">                   
+                    Ingresar nuevo equipo
+                    </a>
+
             </div>
         </div>
     </div>
-    
-    
+
     <div class="image-container" style="margin-top: 30px;">
         <img src="../../imagenes/clinica-internacional-equipo-biomedico-maquinas.jpg" class="img-fluid" style="max-width: 50%; height: auto;">
     </div>

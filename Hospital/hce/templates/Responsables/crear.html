@@ -6,10 +6,19 @@
 
 {% block contenido %}
 
+
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+
 <div class="card">
-    <div class="card-header">
-        <h1> Crear un Responsable </h1>
+
+  <div class="jumbotron text-center" style="background-color: #ffffff; color: #2c3e50;"> 
+
+    <h1 class="display-3" style="font-family: 'Roboto Slab', serif; font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); color: #3498db;">
+        Ingresar responsable    </h1>
+
     </div>
+
     <div class="card-body">
         <form action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
             {% csrf_token %}
@@ -31,14 +40,16 @@
             </div>
             
             <br><br>
-            <button type="submit" class="btn btn-outline-success">Crear</button>
-            <a class="btn btn-warning" href="{% url 'Responsables' %}" role="button">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Crear</button>
+            <a class="btn btn-danger" href="{% url 'responsable' %}" role="button">Cancelar</a>
         </form>
     </div>
-    <div class="card-footer text-muted">
-        <h3>IngSoft 2.0</h3>
-    </div>
+   
 </div>
+
+<div class="mt-4 text-center"> 
+    <a href="{% url 'responsable' %}" class="btn btn-primary">Volver</a> 
+  </div> 
 
 <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -55,7 +66,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> 
+
+
 
 <script>
 function validateForm() {
