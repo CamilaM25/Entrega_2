@@ -5,37 +5,43 @@
 {% block title %} Ingresar equipo {% endblock %}
 
 {% block contenido %}
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+
 
 <div class="card">
-    <div class="card-header">
-         Ingresar equipo
-    </div>
 
-    <div class="card-body">
+    <div class="jumbotron text-center" style="background-color: #ffffff; color: #2c3e50;"> 
+
+        <h1 class="display-3" style="font-family: 'Roboto Slab', serif; font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); color: #3498db;">
+            Ingresar equipo    </h1>
+    
+        </div>
+
+    <div class="card-body tsext-center">
         <form action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
             {% csrf_token %}
 
-            <div class="col-md-5">
+            <div class="form-group">
                 <label for="InputNombre">Nombre</label>
                 <input type="text" name="Nombre" id="InputNombre" class="form-control" placeholder="" required aria-describedby="helpId">
             </div>
               
-            <div class="col-md-5">
+            <div class="form-group">
                 <label for="InputMarca">Marca</label>
                 <input type="text" name="Marca" id="InputMarca" class="form-control" placeholder="" required aria-describedby="helpId">
             </div>
 
-            <div class="col-md-5">
+            <div class="form-group">
                 <label for="InputModelo">Modelo</label>
                 <input type="text" name="Modelo" id="InputModelo" class="form-control" placeholder="" required aria-describedby="helpId">
             </div>
 
-            <div class="col-md-5">
+            <div class="form-group">
                 <label for="InputSerial">Serial</label>
                 <input type="text" name="Serial" id="InputSerial" class="form-control" placeholder="" required aria-describedby="helpId">
             </div>
 
-            <div class="col-md-5">
+            <div class="form-group">
                 <label for="InputArea" class="form-label">Área</label>
                 <select name="Area" id="InputArea" class="form-select" required aria-describedby="helpId">
                     <option selected disabled>Seleccione...</option>
@@ -45,7 +51,7 @@
                 </select>
             </div>
 
-            <div class="col-md-5">
+            <div class="form-group">
                 <label for="InputResponsable" class="form-label">Responsable</label>
                 <select name="Responsable" id="InputResponsable" class="form-select" required aria-describedby="helpId">
                     <option selected disabled>Seleccione...</option>
@@ -60,7 +66,7 @@
               </div>
               {{ form.as_p }}
             <br><br>
-            <button type="submit" class="btn btn-primary">Ingresar</button>
+            <button type="submit" class="btn btn-primary">Crear</button>
             <a class="btn btn-danger" href="{% url 'equipo' %}" role="button">Cancelar</a>
         </form>
     </div>

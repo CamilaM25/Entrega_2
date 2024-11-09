@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% load static %}  <!-- Cargar archivos estáticos -->
+
+{% block title %} Página de inicio {% endblock %}
+
+{% block contenido %}
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+<div class="card">
+
+  <div class="jumbotron text-center" style="background-color: #ffffff; color: #2c3e50;"> 
+
+    <h1 class="display-3" style="font-family: 'Roboto Slab', serif; font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); color: #3498db;">
+        Editar responsable    </h1>
+
+    </div>
+
+    <div class="card-body">
+        <form action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+            {% csrf_token %}
+            
+                <div class="form-group">
+                    <label for="documento">Documento</label>
+                    <input type="number" name="documento" id="documento" class="form-control" placeholder="" aria-describedby="helpId" value="{{ formResponsable.documento.value }}">
+
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="" aria-describedby="helpId" value="{{formResponsable.nombre.value }}">
+                </div>
+                <div class="form-group">
+                    <label for="apellido">Apellidos</label>
+                    <input type="text" name="apellido" id="apellido" class="form-control" placeholder="" aria-describedby="helpId" value="{{formResponsable.apellido.value }}">
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo</label>
+                    <input type="email" name="correo" id="correo" class="form-control" placeholder="" aria-describedby="helpId" value="{{formResponsable.correo.value }}">
+                </div>
+                </div>
+                
+                </div>
+
+                {{ form.as_p }}
+            </div>
+
+
+            <br><br>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+            <a class="btn btn-danger" href="{% url 'Responsables' %}" role="button">Cancelar</a>
+        </form>
+
+</div>
+</div>
+
+
+{% endblock %}
