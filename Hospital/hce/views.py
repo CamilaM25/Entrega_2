@@ -45,9 +45,11 @@ def editar(request, id):
         'responsable_actual': equipo.Responsable  
     })
 
-def ver (request,id):
-    equipo = Equipo.objects.get(id=id) #Busca el Id
-    return render(request, 'Equipos/ver.html', {'equipo': equipo})
+def ver(request, id):
+    equipo = Equipo.objects.get(id=id)  # Busca el Id del equipo
+    responsable = Responsable.objects.get(id=equipo.Responsable)  # Busca el responsable con ese id en la otra tabla
+    return render(request, 'Equipos/ver.html', {'equipo': equipo, 'responsable': responsable})
+
 
 def borrar(request, id):
     equipo = Equipo.objects.get(id=id)
