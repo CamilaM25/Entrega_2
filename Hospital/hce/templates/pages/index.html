@@ -1,43 +1,99 @@
 {% extends "base.html" %}
 
-{% load static %}  <!-- Cargar archivos estáticos -->
-
 {% block title %} Página de inicio {% endblock %}
 
 {% block contenido %}
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Poppins:wght@600&display=swap" rel="stylesheet">
 
-<div class="jumbotron text-center" style="background-color: #ffffff; color: #2c3e50;"> <!-- Fondo blanco y texto azul -->
-    <!-- Título con fuente llamativa -->
-    <h1 class="display-3" style="font-family: 'Roboto Slab', serif; font-size: 3.5rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); color: #3498db;">
-        ¡Bienvenido al Sistema de Gestión Tecnológica Hospitalaria!
-    </h1>
-    <!-- Texto adicional con fuente llamativa -->
-    <p class="lead" style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.25rem; color: #1d3c6a">
-        Aquí podrás gestionar todos los aspectos relacionados con la tecnología en el hospital.
-    </p>
-    <hr class="my-2" style="border-color: #1d3c6a;"> <!-- Línea horizontal azul -->
-    <p style="font-family: 'Poppins', sans-serif; color: #1d3c6a; font-size: 1rem;">
-        Utiliza las opciones del menú para navegar por el sistema.
-    </p>
+<div class="jumbotron text-center" style="background-color: #ffffff; color: #60a5ea; position: relative;">
+    <img src="/imagenes/persona-saludando.jpg" alt="Persona saludando" style="position: static; top: -80px; left: 20px; height: 100px;">
+    <div style="display: inline-block; background-color: #cce4f8; border-radius: 10px; padding: 10px; margin-left: 10px; box-shadow: 1px 1px 10px rgba(0,0,0,0.1);">
+        <h3 class="display-8" style="font-family: 'Roboto Slab', serif; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); color: #234860; margin: 0;">
+            ¡Bienvenido al Sistema de Gestión Tecnológica Hospitalaria!
+        </h3>
+    </div>
+</div>
 
-   
-    <div class="menu" style="margin-top: 30px;">
-        <div class="row justify-content-center">
-            <div class="col-md-3">
-                <a href="{% url 'equipo' %}" class="btn btn-primary btn-lg" style="width: 100%; margin-bottom: 15px;"> Equipo</a>
+
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">  <!-- Auto deslizante -->
+  <ol class="carousel-indicators">
+    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="/imagenes/inventario_1.jpg" alt="Primera diapositiva">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Gestión Integral de Inventarios</h5>
+        <p>Optimización y control eficiente de todos los activos tecnológicos del hospital.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="/imagenes/inventario_2.jpg" alt="Segunda diapositiva">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Monitoreo en Tiempo Real</h5>
+        <p>Visualiza y gestiona los equipos médicos en tiempo real.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="/imagenes/inventario_3.jpg" alt="Tercera diapositiva">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Seguridad y Mantenimiento</h5>
+        <p>Asegura el correcto funcionamiento de todos los dispositivos con un mantenimiento regular.</p>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Anterior</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Siguiente</span>
+  </a>
+</div>
+
+<!-- Información adicional relevante -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4" style="background-color: #e3f2fd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div class="card-body text-center">
+                    <i class="bi bi-clock" style="font-size: 2rem; color: #66a2ca;"></i> <!-- Icono de reloj -->
+                    <h5 class="card-title mt-2">Horarios de Atención</h5>
+                    <p class="card-text">Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                    <p class="card-text">Sábados: 9:00 AM - 2:00 PM</p>
+                    <p class="card-text">Domingos y Festivos: Cerrado</p>
+                </div>
             </div>
-            <div class="col-md-3">
-                <a href="{% url 'responsable' %}" class="btn btn-primary btn-lg" style="width: 100%;"> Responsables</a>
-                  
-                
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4" style="background-color: #e3f2fd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div class="card-body text-center">
+                    <i class="bi bi-telephone" style="font-size: 2rem; color: #66a2ca;"></i> <!-- Icono de teléfono -->
+                    <h5 class="card-title mt-2">Información de Contacto</h5>
+                    <p class="card-text">Teléfono: +57 123 456 7890</p>
+                    <p class="card-text">Email: info@hospital.com</p>
+                    <p class="card-text">Dirección: Calle 123, Medellín, Colombia</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4" style="background-color: #e3f2fd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div class="card-body text-center">
+                    <i class="bi bi-info-circle" style="font-size: 2rem; color: #66a2ca;"></i> <!-- Icono de información -->
+                    <h5 class="card-title mt-2">Sobre el Sistema</h5>
+                    <p class="card-text">Este sistema está diseñado para optimizar la gestión de inventarios y el mantenimiento de los equipos médicos en el hospital. Con funcionalidades avanzadas, permite un monitoreo en tiempo real, gestión eficiente y aseguramiento de la operatividad de todos los dispositivos tecnológicos.</p>
+                </div>
             </div>
         </div>
     </div>
-
-    <!-- Imagen con tamaño reducido -->
-    <div class="image-container">
-        <img src="../../imagenes/clinica-internacional-equipo-biomedico-maquinas.jpg" class="img-fluid" style="max-width: 50%; height: auto;">
-    </div>
 </div>
+
+
 {% endblock %}
+
+
+
